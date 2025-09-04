@@ -21,7 +21,7 @@
     {
       "displayName": "Sample Scene",
       "description": "A demo scene showing broken components, prefabs, and missing materials.",
-      "path": "Samples~/SampleScene"
+      "path": "Samples~/Sample"
     }
   ]
 }
