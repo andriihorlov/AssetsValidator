@@ -1,0 +1,20 @@
+{
+  "name": "com.horaxr.assetsvalidator",
+  "version": "0.0.2",
+  "displayName": "Assets Validator",
+  "description": "Toolset that helps identifying broken scripts, prefabs, and materials.",
+  "unity": "2020.3",
+  "unityRelease": "0b1",
+  "keywords": [
+    "missing scripts",
+    "missing prefab",
+    "missing materials",
+    "asset validator",
+    "editor"
+  ],
+  "author": {
+    "name": "Andrii Horlov",
+    "email": "andreygorlovv@gmail.com",
+    "url": "https://andriihorlov.github.io/"
+  }
+}

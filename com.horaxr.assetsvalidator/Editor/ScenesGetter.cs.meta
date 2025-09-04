@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: fa0c8db58a87754429cf2c1b02cd6090
+timeCreated: 1675372043
+AssetOrigin:
+  serializedVersion: 1
+  productId: 283795
+  packageName: AssetValidator
+  packageVersion: 1.0
+  assetPath: Assets/com.fidgetland.assetsvalidator/Editor/ScenesGetter.cs
+  uploadId: 667668

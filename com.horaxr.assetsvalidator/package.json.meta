@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 94d06ad7da6a242418ac3ca9fa7cd952
+PackageManifestImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 283795
+  packageName: AssetValidator
+  packageVersion: 1.0
+  assetPath: Assets/com.fidgetland.assetsvalidator/package.json
+  uploadId: 667668
