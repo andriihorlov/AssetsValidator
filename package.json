@@ -16,5 +16,12 @@
     "name": "Andrii Horlov",
     "email": "andreygorlovv@gmail.com",
     "url": "https://andriihorlov.github.io/"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Sample Scene",
+      "description": "A demo scene showing broken components, prefabs, and missing materials.",
+      "path": "Samples/SampleScene"
+    }
+  ]
 }
