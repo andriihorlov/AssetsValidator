@@ -84,66 +84,29 @@ namespace com.horaxr.assetsvalidator.Editor
         {
             try
             {
-                string[] sceneGuids = AssetDatabase.FindAssets("t:Scene");
-                int totalScenes = sceneGuids.Length;
-                int sceneIndex = 0;
-
-                foreach (string guid in sceneGuids)
+                SceneUtilityValidator.TraverseAllScenes((go, scene) =>
                 {
-                    sceneIndex++;
-                    string scenePath = AssetDatabase.GUIDToAssetPath(guid);
-                    Scene scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
-
-                    var allRoots = scene.GetRootGameObjects();
-                    int processed = 0;
-                    int totalApprox = allRoots.Length;
-
-                    Queue<GameObject> queue = new Queue<GameObject>(allRoots);
-                    while (queue.Count > 0)
+                    switch (missingType)
                     {
-                        GameObject go = queue.Dequeue();
-                        processed++;
-
-                        if (processed % 100 == 0)
-                        {
-                            EditorUtility.DisplayProgressBar(
-                                "Assets Validator",
-                                $"Scanning scene {scene.name} ({sceneIndex}/{totalScenes})",
-                                processed / (float) Mathf.Max(1, totalApprox));
-                        }
-
-                        switch (missingType)
-                        {
-                            case MissingType.Components:
-                                FindBrokenComponents(go, scene);
-                                break;
-                            case MissingType.Prefabs:
-                                FindBrokenPrefabs(go, scene);
-                                break;
-                            case MissingType.Materials:
-                                FindMissingMaterials(go, scene);
-                                break;
-                        }
-
-                        foreach (Transform child in go.transform)
-                        {
-                            queue.Enqueue(child.gameObject);
-                        }
+                        case MissingType.Components:
+                            FindBrokenComponents(go, scene);
+                            break;
+                        case MissingType.Prefabs:
+                            FindBrokenPrefabs(go, scene);
+                            break;
+                        case MissingType.Materials:
+                            FindMissingMaterials(go, scene);
+                            break;
                     }
+                });
 
-                    EditorUtility.ClearProgressBar();
-                }
-
+                EditorUtility.ClearProgressBar();
                 Logger.Log(LogType.Log, MsgSearchDone);
             }
             catch (Exception ex)
             {
                 EditorUtility.ClearProgressBar();
                 Logger.Log(LogType.Error, $"AssetsValidator encountered an error: {ex.Message}\n{ex.StackTrace}");
-            }
-            finally
-            {
-                EditorUtility.ClearProgressBar();
             }
         }
 
