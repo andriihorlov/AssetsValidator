@@ -16,7 +16,7 @@ namespace com.horaxr.assetsvalidator.Editor
 {
     public static class SceneUtilityValidator
     {
-        private static List<Scene> OriginalScenes;
+        private static List<string> OriginalScenes;
 
         public static void TraverseAllScenes(Action<GameObject, Scene> onGameObject)
         {
@@ -56,7 +56,10 @@ namespace com.horaxr.assetsvalidator.Editor
                             queue.Enqueue(child.gameObject);
                         }
                     }
+
+                    EditorSceneManager.CloseScene(scene, true);
                 }
+                
             }
             finally
             {
@@ -67,10 +70,10 @@ namespace com.horaxr.assetsvalidator.Editor
 
         private static void SaveCurrentScenes()
         {
-            OriginalScenes = new List<Scene>();
+            OriginalScenes = new List<string>();
             for (int i = 0; i < SceneManager.sceneCount; i++)
             {
-                OriginalScenes.Add(SceneManager.GetSceneAt(i));
+                OriginalScenes.Add(SceneManager.GetSceneAt(i).path);
             }
         }
 
@@ -86,16 +89,16 @@ namespace com.horaxr.assetsvalidator.Editor
         private static void RestoreOriginalScenes()
         {
             if (OriginalScenes == null) return;
-
-            for (int i = 0; i < SceneManager.sceneCount; i++)
+            
+            EditorSceneManager.OpenScene(OriginalScenes[0], OpenSceneMode.Single);
+            if (OriginalScenes.Count > 1)
             {
-                Scene scene = SceneManager.GetSceneAt(i);
-                if (!OriginalScenes.Contains(scene))
+                for (int index = 1; index < OriginalScenes.Count; index++)
                 {
-                    EditorSceneManager.CloseScene(scene, true);
+                    EditorSceneManager.OpenScene(OriginalScenes[index], OpenSceneMode.Additive);
                 }
             }
-
+            
             OriginalScenes.Clear();
         }
     }
