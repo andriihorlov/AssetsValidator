@@ -1,4 +1,4 @@
-# 📦 Assets Validator
+# 📦 Asset Validator
 
 **Assets Validator** is a Unity Editor tool that helps developers quickly find and fix:
 - 🟢 Broken scripts
@@ -19,7 +19,7 @@ You can install this package directly from GitHub:
 2. Click the **➕** button (top left) → **Add package from git URL...**
 3. Paste the following URL:
 
-https://github.com/andriihorlov/AssetsValidator.git
+    https://github.com/andriihorlov/AssetsValidator.git
 
 ---
 
