@@ -6,9 +6,7 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,10 +29,10 @@ namespace com.horaxr.assetsvalidator.Editor
             Materials
         }
 
-        private const string MenuBrokenComponents = "Tools/Asset Validator/Find Broken Components";
-        private const string MenuBrokenPrefabs = "Tools/Asset Validator/Find Broken Prefabs";
-        private const string MenuMissingMaterials = "Tools/Asset Validator/Find Missing Materials";
-        private const string MenuAbout = "Tools/Asset Validator/About";
+        private const string MenuBrokenComponents = "Tools/Assets Validator/Find Broken Components";
+        private const string MenuBrokenPrefabs = "Tools/Assets Validator/Find Broken Prefabs";
+        private const string MenuMissingMaterials = "Tools/Assets Validator/Find Missing Materials";
+        private const string MenuAbout = "Tools/Assets Validator/About";
 
         private const string MsgMissingScript = "Missing scripts on GameObject <color=yellow>'{0}'</color> in scene <b>'{1}'</b> → path: <color=white>{2}</color>";
         private const string MsgMissingPrefab = "Missing prefab source for <color=yellow>'{0}'</color> in scene <b>'{1}'</b> → path: <color=white>{2}</color>";

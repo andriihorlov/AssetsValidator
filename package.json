@@ -23,5 +23,6 @@
       "description": "A demo scene showing broken components, prefabs, and missing materials.",
       "path": "Samples~/Sample"
     }
-  ]
+  ],
+  "icon" : "Editor/Content/Icon.png"
 }

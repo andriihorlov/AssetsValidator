@@ -17,7 +17,7 @@ namespace com.horaxr.assetsvalidator.Editor
         private const string AssetStoreUrl = "https://assetstore.unity.com/publishers/94841";
         private const string SupportEmail = "hello@horaxr.com";
 
-        private const string LogoPath = "Assets/com.horaxr.assetsvalidator/Editor/Content/logo.png";
+        private const string LogoPath = "Assets/AssetsValidator/Editor/Content/horaxr-logo.png";
 
         private Texture2D _logoTex;
 
